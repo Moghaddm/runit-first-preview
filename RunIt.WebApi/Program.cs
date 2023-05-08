@@ -1,4 +1,5 @@
 using RunIt.WebApi.Infrastructure;
+using RunIt.WebApi.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddSingleton<GameRepository>();
 var app = builder.Build();
 using(var scope = app.Services.CreateScope())
 {
