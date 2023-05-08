@@ -10,22 +10,31 @@ public class GameRepository : IGameRepository
 
     public GameRepository(DapperContext context) => _context = context;
 
-    public ValueTask DecreaseRate()
+    public async ValueTask DecreaseRate(int productId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync("UPDATE GAMES SET RATE = RATE-1 WHERE ID = @ProductId", new { ProductId = productId });
+            }
+        }
+        catch (Exception exception)
+        {
+            throw new Exception(exception.Message);
+        }
     }
 
-    public IEnumerable<Game> Get()
+    public async ValueTask<IEnumerable<Game>> Get()
     {
-         try
+        try
         {
-           var query = "SELECT * FROM GAMES";
+            var query = "SELECT * FROM GAMES";
 
-        using (var connection = _context.CreateConnection())
-        {
-            var games = connection.Query<IEnumerable<Game>>(query);
-            return games;
-        }
+            using (var connection = _context.CreateConnection())
+            {
+                return await connection.QueryAsync<Game>(query);
+            }
         }
         catch (System.Exception exception)
         {
@@ -33,17 +42,16 @@ public class GameRepository : IGameRepository
         }
     }
 
-    public async IEnumerable<Game> GetByName(string name)
+    public async ValueTask<IEnumerable<Game>> GetByName(string fullName)
     {
-          try
+        try
         {
-           var query = "SELECT * FROM GAME WHERE";
+            var query = "SELECT * FROM GAMES WHERE FULLNAME = @FullName";
 
-        using (var connection = _context.CreateConnection())
-        {
-            var games = await connection.QueryAsync<IEnumerable<Game>>(query);
-            return games;
-        }
+            using (var connection = _context.CreateConnection())
+            {
+                return await connection.QueryAsync<Game>(query, new { FullName = fullName });
+            }
         }
         catch (System.Exception exception)
         {
@@ -51,12 +59,19 @@ public class GameRepository : IGameRepository
         }
     }
 
-    public ValueTask IncreaseRate()
+    public async ValueTask IncreaseRate(int productId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync("UPDATE GAMES SET RATE = RATE+1 WHERE ID = @ProductId", new { ProductId = productId });
+            }
+        }
+        catch (Exception exception)
+        {
+            throw new Exception(exception.Message);
+        }
     }
-    public async Task<IEnumerable<Game>> GetCompanies()
-{
-   
 }
-}
+

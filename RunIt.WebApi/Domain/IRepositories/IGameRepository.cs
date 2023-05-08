@@ -1,9 +1,9 @@
 namespace RunIt.WebApi.Domain.IRepositories;
 public interface IGameRepository
 {
-    IEnumerable<Game> Get();
-    IEnumerable<Game> GetByName(string name);
-    ValueTask IncreaseRate();
-    ValueTask DecreaseRate();
+    ValueTask<IEnumerable<Game>> Get();
+    ValueTask<IEnumerable<Game>> GetByName(string fullName);
+    ValueTask IncreaseRate(int productId);
+    ValueTask DecreaseRate(int productId);
 
 }
