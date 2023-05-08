@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "H:\\RunIt\\RunIt.WebApi\\RunIt.WebApi.csproj": {}
+    "/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/RunIt.WebApi.csproj": {}
   },
   "projects": {
-    "H:\\RunIt\\RunIt.WebApi\\RunIt.WebApi.csproj": {
+    "/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/RunIt.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\RunIt\\RunIt.WebApi\\RunIt.WebApi.csproj",
+        "projectUniqueName": "/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/RunIt.WebApi.csproj",
         "projectName": "RunIt.WebApi",
-        "projectPath": "H:\\RunIt\\RunIt.WebApi\\RunIt.WebApi.csproj",
-        "packagesPath": "C:\\Users\\mahdi\\.nuget\\packages\\",
-        "outputPath": "H:\\RunIt\\RunIt.WebApi\\obj\\",
+        "projectPath": "/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/RunIt.WebApi.csproj",
+        "packagesPath": "/home/mohammad/.nuget/packages/",
+        "outputPath": "/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mahdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/mohammad/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +38,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -47,6 +49,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
@@ -68,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     }

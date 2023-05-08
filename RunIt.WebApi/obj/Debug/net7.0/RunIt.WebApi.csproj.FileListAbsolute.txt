@@ -1,0 +1,7 @@
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.csproj.AssemblyReference.cache
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.AssemblyInfoInputs.cache
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.AssemblyInfo.cs
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.csproj.CoreCompileInputs.cache
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.MvcApplicationPartsAssemblyInfo.cs
+/home/mohammad/Desktop/RunIt/RUNIT-FirstPreview/RunIt.WebApi/obj/Debug/net7.0/RunIt.WebApi.MvcApplicationPartsAssemblyInfo.cache
