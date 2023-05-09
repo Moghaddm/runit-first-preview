@@ -58,7 +58,22 @@ public class GameRepository : IGameRepository
             throw new Exception(exception.Message);
         }
     }
+    public async ValueTask<Game> GetById(int productId)
+    {
+        try
+        {
+            var query = "SELECT * FROM GAMES WHERE ID = @ProductId";
 
+            using (var connection = _context.CreateConnection())
+            {
+                return await connection.QueryFirstOrDefaultAsync<Game>(query, new { ProductId = productId });
+            }
+        }
+        catch (System.Exception exception)
+        {
+            throw new Exception(exception.Message);
+        }
+    }
     public async ValueTask IncreaseRate(int productId)
     {
         try
