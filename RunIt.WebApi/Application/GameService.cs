@@ -1,47 +1,61 @@
-<<<<<<< HEAD
-﻿namespace RunIt.WebApi.Application
-{
-    public class GameService
-    {
-    }
-}
-=======
+using RunIt.WebApi.Application.Models;
 using RunIt.WebApi.Domain;
 using RunIt.WebApi.Domain.IRepositories;
 using RunIt.WebApi.Infrastructure.Repositories;
 
 namespace RunIt.WebApi.Application;
 
-public class GameService : Model.IGameService
+public class GameService : IGameService
 {
-    private readonly GameRepository  _GameRepository;
-    public GameService(GameRepository gameRepo)
+    private readonly IGameRepository _gameRepository;
+
+    public GameService(IGameRepository gameRepo)
     {
-        _GameRepository=gameRepo;
-    }
-    public ValueTask DecreaseRate()
-    {
-        throw new NotImplementedException();
+        _gameRepository = gameRepo;
     }
 
-    public  IEnumerable<Game> Get()
+    public async ValueTask DecreaseRate(int productId) =>
+        await _gameRepository.DecreaseRate(productId);
+
+    public async ValueTask<IEnumerable<GameAddEditShowDTO>> Get() =>
+        _gameRepository
+            .Get()
+            .Result.Select(
+                game =>
+                    new GameAddEditShowDTO
+                    {
+                        Title = game.Title,
+                        Image = game.Image,
+                        Rate = game.Rate
+                    }
+            )
+            .ToList();
+
+    public async ValueTask<GameAddEditShowDTO> GetById(int productId)
     {
-        return  _GameRepository.Get();
+        var game = await _gameRepository.GetById(productId);
+        return new GameAddEditShowDTO()
+        {
+            Title = game.Title,
+            Image = game.Image,
+            Rate = game.Rate
+        };
     }
 
-    public  IEnumerable<Game> GetByName(string name)
-    {
-        return _GameRepository.GetByName(name);
-    }
+    public async ValueTask<IEnumerable<GameAddEditShowDTO>> GetByName(string fullName) =>
+        _gameRepository
+            .GetByName(fullName)
+            .Result.Select(
+                game =>
+                    new GameAddEditShowDTO
+                    {
+                        Title = game.Title,
+                        Image = game.Image,
+                        Rate = game.Rate
+                    }
+            )
+            .ToList();
 
-    public async Task<IEnumerable<Game>> GetCompanies()
-    {
-      return await  _GameRepository.GetCompanies();
-    }
-
-    public  ValueTask IncreaseRate()
-    {
-        return  _GameRepository.IncreaseRate();
-    }
+    public async ValueTask IncreaseRate(int productId) =>
+        await _gameRepository.IncreaseRate(productId);
 }
->>>>>>> Add_GameService_in_Application_and_GameController
